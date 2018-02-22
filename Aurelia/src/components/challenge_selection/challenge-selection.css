@@ -1,0 +1,27 @@
+h1 {
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    margin-top: 1%;
+}
+
+div.selection-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.selection-container .selection-container-item {
+    color: black;
+    border-style: solid;
+    border-color: black;
+    margin: 5%;
+    padding: 1%;
+    min-width: 40%;
+    max-height: 40em;
+    overflow-y: scroll;
+}
+
+div.selection-container .selection-container-item:hover {
+    border-color: red;
+}
