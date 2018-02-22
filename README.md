@@ -22,7 +22,9 @@ The task was to implement two components:
   * unit testing
   * UI testing
   * stubbing
-  * aurelia.json modification to include some of the third-party libraries (bootstrap, moment)
+  * environment variables
+  * aurelia.json modification to include some of the third-party libraries (bootstrap, moment, rxjs)
+  * observables
   * value-converters & pipes
   * routing
   * API consumption via aurelia-fetch-client
