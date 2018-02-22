@@ -1,14 +1,17 @@
 <template>
   <require from="./countdown-timer.css"></require>
+  <require from="../../resources/value-converters/jackpot-format-value-converter"></require>
+  <require from="../../resources/value-converters/countdown-format-value-converter"></require>
   
   <div class="container">
-    <div class="amount">
-      $${amount}
+    <div class="jackpot">
+      <span class="currency-sign">$ </span>
+      <span class="amount uppercase">${ amount | jackpotFormat }</span>
     </div>
     <div class="uppercase" if.bind="isDrawToday">tonight</div>
     <div class="closing-time-container">
-      <div class="uppercase">draw closes in</div>
-      <div class="countdown-time">${secondRemainingToDraw}</div>
+      <div class="annoucement uppercase">draw closes in</div>
+      <div class="countdown-time">${ secondRemainingToDraw | countdownFormat }</div>
     </div>
   </div>
 </template>

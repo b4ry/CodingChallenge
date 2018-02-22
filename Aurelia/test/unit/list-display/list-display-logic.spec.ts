@@ -1,6 +1,6 @@
-import { HttpClientStub } from '../../src/stubs/http-client.stub';
-import { CompaniesServiceStub } from '../../src/stubs/companies.service.stub';
-import { ListDisplay } from '../../src/components/list_display/list-display';
+import { HttpClientStub } from '../../../src/stubs/http-client.stub';
+import { CompaniesServiceStub } from '../../../src/stubs/companies.service.stub';
+import { ListDisplay } from '../../../src/components/list_display/list-display';
 
 describe('ListDisplay component', () => {
 

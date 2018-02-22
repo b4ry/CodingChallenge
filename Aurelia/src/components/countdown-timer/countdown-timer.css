@@ -5,7 +5,36 @@
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex: 1 1 1;
     background: radial-gradient(circle, rgba(83,158,76,1), rgba(44,142,39,1));
     color: white;
+    text-shadow: 6px 5px 2px rgba(0,0,0, 0.4);
+    font-weight: bolder;
+}
+
+.jackpot {
+    font-family: "Museo-sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-right: 1em;
+}
+
+.currency-sign {
+    font-size: 42px;
+}
+
+.amount {
+    font-size: 80px;
+}
+
+.closing-time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.annoucement {
+    font-weight: normal;
 }

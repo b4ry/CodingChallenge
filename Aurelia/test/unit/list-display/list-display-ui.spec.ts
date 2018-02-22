@@ -2,9 +2,9 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { StageComponent, ComponentTester } from 'aurelia-testing';
 import { bootstrap } from 'aurelia-bootstrapper';
 
-import { HttpClientStub } from '../../src/stubs/http-client.stub';
-import { CompaniesServiceStub } from '../../src/stubs/companies.service.stub';
-import { CompaniesService } from '../../src/services/companies.service';
+import { HttpClientStub } from '../../../src/stubs/http-client.stub';
+import { CompaniesServiceStub } from '../../../src/stubs/companies.service.stub';
+import { CompaniesService } from '../../../src/services/companies.service';
 
 describe('ListDisplay component', () => {
 
@@ -14,7 +14,7 @@ describe('ListDisplay component', () => {
 
   beforeAll(() => {
     this.httpClientStub = new HttpClientStub();
-    this.companiesServiceStub = new CompaniesServiceStub(this.httpClientStub)
+    this.companiesServiceStub = new CompaniesServiceStub(this.httpClientStub);
     this.component = StageComponent
         .withResources('components/list_display/list-display')
         .inView('<list-display></list-display>');
@@ -67,7 +67,7 @@ describe('ListDisplay component', () => {
     });
   });
 
-  afterAll(() => {
+  afterEach(() => {
     this.component.dispose();
   });
 });

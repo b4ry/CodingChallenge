@@ -3,8 +3,9 @@ import 'rxjs/add/operator/takeWhile';
 import * as moment from 'moment';
 
 import { DrawService } from "../../services/draw.service";
+import { DateService } from '../../services/date.service';
 
-@inject(DrawService)
+@inject(DrawService, DateService)
 export class CountdownTimer {    
   public amount: number;
   public isDrawToday: boolean = false;
@@ -14,15 +15,17 @@ export class CountdownTimer {
   private aliveNextDrawComponentSubscription: boolean = true;
   private drawDateUTC: moment.Moment;
   
-  constructor(private drawService: DrawService) 
+  constructor(private drawService: DrawService, private dateService: DateService) 
   { }
   
   created() {
+    this.aliveNextDrawComponentSubscription = true;
     this.initializeTimer();
   }
   
   unbind() {
     this.aliveNextDrawComponentSubscription = false;
+    clearInterval(this.refreshCountDownId);
   }
 
   private initializeTimer(): void {
@@ -31,7 +34,8 @@ export class CountdownTimer {
       .subscribe(result => {
           this.amount = result[0].Div1Amount;
           this.secondRemainingToDraw = result[0].DrawCountDownTimerSeconds;
-          this.drawDateUTC = moment(result[0].DrawDate);
+          let drawDate: Date = new Date(result[0].DrawDate);
+          this.drawDateUTC = moment(drawDate);
 
           this.startCountdown();
       });
@@ -54,8 +58,7 @@ export class CountdownTimer {
   }
 
   private determineIfDrawingIsToday() {
-    let currentDate: Date = new Date(Date.now());
-    let currentDateUTC: moment.Moment = moment.utc(currentDate);
+    let currentDateUTC: moment.Moment = this.dateService.getDate();
 
     if (this.isDrawDateToday(currentDateUTC)) {
       this.isDrawToday = true;
