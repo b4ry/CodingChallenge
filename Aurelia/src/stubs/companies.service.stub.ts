@@ -4,6 +4,9 @@ import { CompaniesService } from "../services/companies.service";
 import { Company } from "../interfaces/company.interface";
 
 export class CompaniesServiceStub extends CompaniesService {
+
+    public timesCalled: number = 0;
+
     private companies: Company[] = [
         {
             CompanyId: "testCompanyId_1",
@@ -20,6 +23,7 @@ export class CompaniesServiceStub extends CompaniesService {
     ];
      
     public getCompanies(): Observable<any>{
+        ++this.timesCalled;
         return Observable.of(this.companies);
     }
 }

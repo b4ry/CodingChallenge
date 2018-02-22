@@ -54,6 +54,19 @@ describe('ListDisplay component', () => {
     });
   });
 
+  it('must trigger populating list after cliking refresh button', done => {
+    this.component.create(bootstrap).then(() => {
+      const numberOfCalls = this.companiesServiceStub.timesCalled;
+      const refreshButton = document.querySelector('.refresh-button') as HTMLElement;
+
+      refreshButton.click();
+
+      expect(this.companiesServiceStub.timesCalled).toEqual(numberOfCalls+1, 'Refresh button did not trigger list population');
+
+      done();
+    });
+  });
+
   afterAll(() => {
     this.component.dispose();
   });
