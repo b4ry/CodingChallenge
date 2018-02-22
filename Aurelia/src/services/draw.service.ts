@@ -5,13 +5,23 @@ import "rxjs/add/observable/of";
 import "rxjs/add/observable/fromPromise";
 
 import { Draw } from '../interfaces/draw.interface';
+import { DrawClosingTimeRequest } from '../interfaces/draw-closing-time-request.interface';
 
 @inject(HttpClient)
 export class DrawService {
 
-    private postRequest;
+    private postRequest: DrawClosingTimeRequest;
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) {
+        this.postRequest = {
+            CompanyId: "GoldenCasket",
+            MaxDrawCount: 1,
+            OptionalProductFilter: [ "OzLotto" ]
+        };
+    }
+
+    created() {
+    }
 
     public retrieveDrawInformation(): Observable<Draw[]> {
         return Observable
@@ -22,7 +32,7 @@ export class DrawService {
                         body: json(this.postRequest)
                     })
                     .then(response => response.json())
-                    .then(data => data.Companies)
+                    .then(data => data.Draws)
             );
     }
 }

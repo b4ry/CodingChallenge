@@ -64,6 +64,11 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           {
+            "name": "moment",
+            "path": "../node_modules/moment/min",
+            "main": "moment.min"
+          },
+          {
             "name": "popper.js",
             "path": "../node_modules/popper.js/dist/umd",
             "main": "popper.min"

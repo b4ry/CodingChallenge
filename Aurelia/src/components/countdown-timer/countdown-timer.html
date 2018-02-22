@@ -1,5 +1,14 @@
 <template>
-  <require from="./countdown-timer"></require>
+  <require from="./countdown-timer.css"></require>
   
-  <h1>${amount}</h1>
+  <div class="container">
+    <div class="amount">
+      $${amount}
+    </div>
+    <div class="uppercase" if.bind="isDrawToday">tonight</div>
+    <div class="closing-time-container">
+      <div class="uppercase">draw closes in</div>
+      <div class="countdown-time">${secondRemainingToDraw}</div>
+    </div>
+  </div>
 </template>
