@@ -56,6 +56,16 @@ describe('Countdowntimer component', () => {
     });
   });
 
+  it('must render TONIGHT if the draw is the same day', done => {
+    this.component.create(bootstrap).then(() => {
+      const tonightElement = document.getElementsByName('tonight')[0] as HTMLElement;
+
+      expect(tonightElement.hidden).toBeFalsy('Tonight was not rendered properly');
+
+      done();
+    });
+  });
+
   afterEach(() => {
     this.component.dispose();
   });

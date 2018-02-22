@@ -9,7 +9,7 @@
       configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'AureliaChallenge';
         config.map([
-          { route: '',              moduleId: './components/challenge_selection/challenge-selection',   title: 'Select a challenge',  name: 'challengeSelection'}
+          { route: '',              moduleId: './components/challenge-selection/challenge-selection',   title: 'Select a challenge',  name: 'challengeSelection'}
         ]);
 
         this.router = router;

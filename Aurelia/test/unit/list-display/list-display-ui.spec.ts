@@ -16,7 +16,7 @@ describe('ListDisplay component', () => {
     this.httpClientStub = new HttpClientStub();
     this.companiesServiceStub = new CompaniesServiceStub(this.httpClientStub);
     this.component = StageComponent
-        .withResources('components/list_display/list-display')
+        .withResources('components/list-display/list-display')
         .inView('<list-display></list-display>');
 
     this.component.bootstrap(aurelia => {

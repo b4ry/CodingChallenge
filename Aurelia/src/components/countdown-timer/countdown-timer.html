@@ -8,7 +8,7 @@
       <span class="currency-sign">$ </span>
       <span class="amount uppercase">${ amount | jackpotFormat }</span>
     </div>
-    <div class="uppercase" if.bind="isDrawToday">tonight</div>
+    <div name="tonight" class="uppercase" if.bind="isDrawToday">tonight</div>
     <div class="closing-time-container">
       <div class="annoucement uppercase">draw closes in</div>
       <div class="countdown-time">${ secondRemainingToDraw | countdownFormat }</div>
