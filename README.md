@@ -25,6 +25,7 @@ The task was to implement two components:
   * environment variables
   * aurelia.json modification to include some of the third-party libraries (bootstrap, moment, rxjs)
   * observables
+  * unsubscription management
   * value-converters & pipes
   * routing
   * API consumption via aurelia-fetch-client
