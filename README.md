@@ -25,7 +25,7 @@ The task was to implement two components:
   * aurelia.json modification to include some of the third-party libraries (bootstrap, moment)
   * value-converters & pipes
   * routing
-  * API consumption
+  * API consumption via aurelia-fetch-client
   * async
   * DTOs
   * GIT branching
