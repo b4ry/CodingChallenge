@@ -6,12 +6,14 @@ import "rxjs/add/observable/fromPromise";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+import { Company } from '../interfaces/company.interface';
+
 @inject(HttpClient)
 export class CompaniesService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getCompaniesObservable(): Observable<any> {
+    public getCompaniesObservable(): Observable<Company[]> {
         return Observable
             .fromPromise(
                 this.httpClient
