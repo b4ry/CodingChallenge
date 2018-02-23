@@ -1,4 +1,4 @@
-import { Draw } from "./draw.interface";
+import { Draw } from "./draw.model";
 
 export interface DrawClosingTime {
     Draws: Draw[],

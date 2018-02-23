@@ -2,7 +2,7 @@ import { inject } from 'aurelia-framework';
 import 'rxjs/add/operator/takeWhile';
 
 import { CompaniesService } from './../../services/companies.service';
-import { Company } from './../../interfaces/company.interface';
+import { Company } from './../../models/company.model';
 
 @inject(CompaniesService)
 export class ListDisplay {
@@ -22,11 +22,15 @@ export class ListDisplay {
         this.aliveCompanySubscription = false;
     }
 
-    populateList() {
+    public populateList(): void {
         this.companiesService.getCompaniesObservable()
             .takeWhile(() => this.aliveCompanySubscription)
             .subscribe(result => {
-                this.companies = <Company[]>result;
+                result.forEach(element => {
+                    let company = Object.create(Company.prototype);
+                    Object.assign(company, element);
+                    this.companies.push(company);
+                });
             });
     }
 }

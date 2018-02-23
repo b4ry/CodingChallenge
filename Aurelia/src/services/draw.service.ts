@@ -6,8 +6,8 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 
-import { Draw } from '../interfaces/draw.interface';
-import { DrawClosingTimeRequest } from '../interfaces/draw-closing-time-request.interface';
+import { Draw } from '../models/draw.model';
+import { DrawClosingTimeRequest } from '../models/draw-closing-time-request.model';
 
 @inject(HttpClient)
 export class DrawService {

@@ -1,7 +1,7 @@
 import { Observable } from "rxjs/Observable";
 
 import { DrawService } from "../services/draw.service";
-import { Draw } from "../interfaces/draw.interface";
+import { Draw } from "../models/draw.model";
 
 export class DrawServiceStub extends DrawService {
 

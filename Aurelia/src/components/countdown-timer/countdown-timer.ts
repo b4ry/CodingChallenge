@@ -4,6 +4,7 @@ import * as moment from 'moment';
 
 import { DrawService } from "../../services/draw.service";
 import { DateService } from '../../services/date.service';
+import { Draw } from '../../models/draw.model';
 
 @inject(DrawService, DateService)
 export class CountdownTimer {    
@@ -32,12 +33,21 @@ export class CountdownTimer {
     this.drawService.retrieveDrawInformationObservable()
       .takeWhile(() => this.aliveNextDrawComponentSubscription)
       .subscribe(result => {
-          this.amount = result[0].Div1Amount;
-          this.secondRemainingToDraw = result[0].DrawCountDownTimerSeconds;
-          let drawDate: Date = new Date(result[0].DrawDate);
-          this.drawDateUTC = moment(drawDate);
+        
+        if(result.length > 1) {
+          throw new Error("Cannot handle more than one item in the collection!")
+        }
 
-          this.startCountdown();
+        let draw = Object.create(Draw.prototype);
+        Object.assign(draw, result[0]);
+
+        this.amount = draw.Div1Amount;
+        this.secondRemainingToDraw = draw.DrawCountDownTimerSeconds;
+
+        let drawDate: Date = new Date(draw.DrawDate);
+        this.drawDateUTC = moment(drawDate);
+
+        this.startCountdown();
       });
   }
 

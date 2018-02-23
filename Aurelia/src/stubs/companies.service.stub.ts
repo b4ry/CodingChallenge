@@ -1,7 +1,7 @@
 import { Observable } from "rxjs/Observable";
 
 import { CompaniesService } from "../services/companies.service";
-import { Company } from "../interfaces/company.interface";
+import { Company } from "../models/company.model";
 
 export class CompaniesServiceStub extends CompaniesService {
 
