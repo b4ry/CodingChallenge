@@ -24,7 +24,7 @@ export class DrawServiceStub extends DrawService {
         }
     ]
      
-    public retrieveDrawInformation(): Observable<Draw[]> {
+    public retrieveDrawInformationObservable(): Observable<Draw[]> {
         ++this.timesCalled;
         return Observable.of(this.draws);
     }

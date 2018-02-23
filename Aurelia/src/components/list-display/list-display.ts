@@ -23,7 +23,7 @@ export class ListDisplay {
     }
 
     populateList() {
-        this.companiesService.getCompanies()
+        this.companiesService.getCompaniesObservable()
             .takeWhile(() => this.aliveCompanySubscription)
             .subscribe(result => {
                 this.companies = <Company[]>result;

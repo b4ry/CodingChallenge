@@ -29,7 +29,7 @@ export class CountdownTimer {
   }
 
   private initializeTimer(): void {
-    this.drawService.retrieveDrawInformation()
+    this.drawService.retrieveDrawInformationObservable()
       .takeWhile(() => this.aliveNextDrawComponentSubscription)
       .subscribe(result => {
           this.amount = result[0].Div1Amount;

@@ -22,7 +22,7 @@ export class CompaniesServiceStub extends CompaniesService {
         }
     ];
      
-    public getCompanies(): Observable<any>{
+    public getCompaniesObservable(): Observable<any>{
         ++this.timesCalled;
         return Observable.of(this.companies);
     }

@@ -1,8 +1,10 @@
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
-import { Observable } from 'rxjs/Observable'; 
-import "rxjs/add/observable/of";
-import "rxjs/add/observable/fromPromise";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/of';
 
 import { Draw } from '../interfaces/draw.interface';
 import { DrawClosingTimeRequest } from '../interfaces/draw-closing-time-request.interface';
@@ -23,7 +25,7 @@ export class DrawService {
     created() {
     }
 
-    public retrieveDrawInformation(): Observable<Draw[]> {
+    public retrieveDrawInformationObservable(): Observable<Draw[]> {
         return Observable
             .fromPromise(
                 this.httpClient
@@ -33,6 +35,7 @@ export class DrawService {
                     })
                     .then(response => response.json())
                     .then(data => data.Draws)
-            );
+            )
+            .catch(err => { throw new Error(err.message); });
     }
 }

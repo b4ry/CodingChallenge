@@ -6,6 +6,7 @@ export class DateService {
 
     public getDate(): moment.Moment {
         let currentDate: Date = new Date(Date.now());
+        
         return moment.utc(currentDate);
     }
 }
