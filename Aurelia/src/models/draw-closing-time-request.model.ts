@@ -1,5 +1,5 @@
-export interface DrawClosingTimeRequest {
-    CompanyId: string,
-    MaxDrawCount: number,
-    OptionalProductFilter: string[]
+export interface IDrawClosingTimeRequest {
+    CompanyId: string;
+    MaxDrawCount: number;
+    OptionalProductFilter: string[];
 }

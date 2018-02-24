@@ -1,6 +1,6 @@
 export class Company {
-    CompanyId: string;
-    CompanyDisplayName: string;
-    CompanyDescription: string;
-    CompanyLogoUrl: string;
+    public CompanyId: string;
+    public CompanyDisplayName: string;
+    public CompanyDescription: string;
+    public CompanyLogoUrl: string;
 }

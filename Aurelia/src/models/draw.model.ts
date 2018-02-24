@@ -1,14 +1,14 @@
 export class Draw {
-    ProductId: string;
-    DrawNumber: number;
-    DrawDisplayName: string;
-    DrawDate: string;
-    DrawLogoUrl: string;
-    DrawType: string;
-    Div1Amount: number;
-    IsDiv1Estimated: boolean;
-    IsDiv1Unknown: boolean;
-    DrawCloseDateTimeUTC: string;
-    DrawEndSellDateTimeUTC: string;
-    DrawCountDownTimerSeconds: number;
+    public ProductId: string;
+    public DrawNumber: number;
+    public DrawDisplayName: string;
+    public DrawDate: string;
+    public DrawLogoUrl: string;
+    public DrawType: string;
+    public Div1Amount: number;
+    public IsDiv1Estimated: boolean;
+    public IsDiv1Unknown: boolean;
+    public DrawCloseDateTimeUTC: string;
+    public DrawEndSellDateTimeUTC: string;
+    public DrawCountDownTimerSeconds: number;
 }

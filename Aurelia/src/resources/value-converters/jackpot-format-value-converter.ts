@@ -1,10 +1,10 @@
 export class JackpotFormatValueConverter {
-    toView(value) {
+    public toView(value): string {
         let suffix: string = "";
         let jackpotStringValue: string = "";
 
-        if (value){
-            if (value >= 1000000){
+        if (value) {
+            if (value >= 1000000) {
                 suffix = "m";
                 jackpotStringValue = Math.round(value / 1000000.00).toString();
             } else {

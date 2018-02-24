@@ -1,18 +1,18 @@
-import { HttpClient } from 'aurelia-fetch-client';
-import {Aurelia} from 'aurelia-framework'
-import environment from './environment';
+import { HttpClient } from "aurelia-fetch-client";
+import { Aurelia } from "aurelia-framework";
+import environment from "./environment";
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('resources');
+    .feature("resources");
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
   }
 
   if (environment.testing) {
-    aurelia.use.plugin('aurelia-testing');
+    aurelia.use.plugin("aurelia-testing");
   }
 
   configureContainer(aurelia.container);
@@ -21,9 +21,9 @@ export function configure(aurelia: Aurelia) {
 }
 
 function configureContainer(container) {
-  let http = new HttpClient();
+  const http = new HttpClient();
 
-  http.configure(config => {
+  http.configure((config) => {
     config
       .useStandardConfiguration()
       .withBaseUrl(environment.url);

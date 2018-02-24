@@ -1,5 +1,5 @@
 export class ChallengeSelection {
 
-  constructor() {
-  }
+  // tslint:disable-next-line:no-empty
+  constructor() {}
 }

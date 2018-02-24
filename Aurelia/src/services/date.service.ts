@@ -1,12 +1,12 @@
-import * as moment from 'moment'
+import * as moment from "moment";
 
 export class DateService {
-    constructor() {  
-    }
+    // tslint:disable-next-line:no-empty
+    constructor() {}
 
     public getDate(): moment.Moment {
-        let currentDate: Date = new Date(Date.now());
-        
+        const currentDate: Date = new Date(Date.now());
+
         return moment.utc(currentDate);
     }
 }

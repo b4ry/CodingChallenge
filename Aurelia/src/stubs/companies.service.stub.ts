@@ -12,17 +12,17 @@ export class CompaniesServiceStub extends CompaniesService {
             CompanyId: "testCompanyId_1",
             CompanyDisplayName: "testCompanyDisplayName_1",
             CompanyDescription: "testCompanyDescription_1",
-            CompanyLogoUrl: ""
+            CompanyLogoUrl: "",
         },
         {
             CompanyId: "testCompanyId_2",
             CompanyDisplayName: "testCompanyDisplayName_2",
             CompanyDescription: "testCompanyDescription_2",
-            CompanyLogoUrl: ""
-        }
+            CompanyLogoUrl: "",
+        },
     ];
-     
-    public getCompaniesObservable(): Observable<any>{
+
+    public getCompaniesObservable(): Observable<any> {
         ++this.timesCalled;
         return Observable.of(this.companies);
     }

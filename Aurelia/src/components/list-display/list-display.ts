@@ -1,8 +1,8 @@
-import { inject } from 'aurelia-framework';
-import 'rxjs/add/operator/takeWhile';
+import "rxjs/add/operator/takeWhile";
+import { inject } from "aurelia-framework";
 
-import { CompaniesService } from './../../services/companies.service';
-import { Company } from './../../models/company.model';
+import { CompaniesService } from "./../../services/companies.service";
+import { Company } from "./../../models/company.model";
 
 @inject(CompaniesService)
 export class ListDisplay {
@@ -14,20 +14,20 @@ export class ListDisplay {
     constructor(private companiesService: CompaniesService) {
     }
 
-    created() {
+    public created(): void {
         this.populateList();
     }
 
-    unbind() {
+    public unbind(): void {
         this.aliveCompanySubscription = false;
     }
 
     public populateList(): void {
         this.companiesService.getCompaniesObservable()
             .takeWhile(() => this.aliveCompanySubscription)
-            .subscribe(result => {
-                result.forEach(element => {
-                    let company = Object.create(Company.prototype);
+            .subscribe((result) => {
+                result.forEach((element) => {
+                    const company = Object.create(Company.prototype);
                     Object.assign(company, element);
                     this.companies.push(company);
                 });
